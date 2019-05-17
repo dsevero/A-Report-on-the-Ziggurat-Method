@@ -35,10 +35,10 @@ Pseudo-random number generators (PRNG's) are crucial in the context of simulatin
 
 # How to reference this repo.
 ```
-@misc{Severo2013,
+@misc{Severo2014,
   author = {Severo, D.},
   title = {A Report on the Ziggurat Method},
-  year = {2013},
+  year = {2014},
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/dsevero/A-Report-on-the-Ziggurat-Method}},
