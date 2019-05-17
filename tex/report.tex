@@ -125,7 +125,7 @@ To implement this method we require 3 look-up tables. One for the ziggurat lengt
 Since each region is selected with probability proportional to it's area, the method will generate samples $x$ with distribution $g$, according to section \ref{ugs}.
 
 \section{Implementation and Speed}\label{implementation}
-McFarland \cite{mcfarland} has made available all the necessary codes to be used in C, Python and MATLAB. It can be found at \url{https://bitbucket.org/cdmcfarland/fast_prng}. We have also uploaded a Python script that generates all the necessary tables ($x_i$, $y_i=g(x_i)$ and $A_j$) for any given bin size $N$: \url{https://www.dropbox.com/s/lk2bj8vxk04pnzj/generate_tables.py}.
+McFarland \cite{mcfarland} has made available all the necessary codes to be used in C, Python and MATLAB. It can be found at \url{https://bitbucket.org/cdmcfarland/fast_prng}. We have also uploaded a Python script that generates all the necessary tables ($x_i$, $y_i=g(x_i)$ and $A_j$) for any given bin size $N$: \url{https://github.com/dsevero/A-Report-on-the-Ziggurat-Method/blob/master/ziggurat/generate_tables.py}.
 
 The header file \textit{normal.h} that has been made available by \cite{mcfarland}, and 
 is available at the hyperlink above, can be readily inserted into any C code. It provides 
