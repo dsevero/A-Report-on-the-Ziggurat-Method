@@ -8,6 +8,7 @@ authors = ["dsevero <danielsouzasevero@gmail.com>"]
 python = "^3.5"
 numpy = "^1.16"
 scipy = "^1.2"
+matplotlib = "^3.0"
 
 [tool.poetry.dev-dependencies]
 

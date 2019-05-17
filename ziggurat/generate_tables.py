@@ -11,6 +11,7 @@ import scipy.optimize
 from scipy.integrate import quad
 from math import *
 import numpy as np
+from matplotlib.pyplot import plot, scatter
 
 
 # Bissection method with long double precision
@@ -59,11 +60,11 @@ Y=Y[0:-1]
 # Calculate cap area
 A[-1]=erf(X[-1]/sqrt(2))-X[-1]*P(X[-1])
 
-print("Chosen area size was 1/{}").format(imax)
-print("Lmax is {0}, boxes cover Lmax*area={1} of the region under the curve").format(len(X),len(X)*area)
-print("Ziggurat lengths stored in X")
-print("Ziggurat heights stored in Y")
-print("Area of left over regions stored in A (first element is the tail, last one is the cap)")
+print("Chosen area size was 1/{}".format(imax))
+print("Lmax is {0}, boxes cover Lmax*area={1} of the region under the curve".format(len(X),len(X)*area))
+print("Ziggurat lengths are ", X)
+print("Ziggurat heights are ", Y)
+print("Area of left over regions (first element is the tail, last one is the cap)", A)
 
 # Plot
 x=linspace(0,ceil(X[0]),1000)
