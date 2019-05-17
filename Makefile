@@ -12,3 +12,6 @@ install:
 	poetry run pip install pip==19.1.1
 	poetry update -vv
 	poetry install -vv
+
+README.md:
+	docker run -v ${PWD}/tex:/source jagregory/pandoc -f latex -t markdown_github report.tex -o README.md
