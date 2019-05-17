@@ -20,7 +20,10 @@ Pseudo-random number generators (PRNG’s) are crucial in the context of simulat
 
 # References
 [1] George Marsaglia, ”A convenient method for generating normal variables.”, SIAM Rev. 6, 260-264,1964.
+
 [2] George  Marsaglia,  Wai  Wan  Tsang,  ”A  fast,  easily  implemented  method  for  sampling  from  de-creasing or symmetric unimodal density functions”, SIAM Journ. Scient. and Statis. Computing,5, 349-359, 1984.
+
 [3] George  Marsaglia,  Wai  Wan  Tsang,  ”The  Ziggurat  Method  for  Generating  Random  Variables”,Journal of Statistical Software, 2000.
+
 [4]  Christopher  D.  McFarland,  ”A  modified  ziggurat  algorithm  for  generating  exponentially-  andnormally-distributed pseudorandom numbers.”, Apr. 2014.
 
