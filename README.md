@@ -1,0 +1,4 @@
+A Report on the Ziggurat Method
+============
+
+Pseudo-random number generators (PRNG’s) are crucial in the context of simulating noise in communication channels. We present a report on an efficient method for generating pseudo-random samples from any decreasing probability distribution called the Ziggurat Method. The initial idea was developed by , but has been enhanced by Marsaglia, Tsang and others. Specifically, we will show the latest and most efficient version presented by McFarland . In the latter paper, the method shows a speedup of over 3 times compared to traditional algorithms such as Marsaglia’s Polar Method . We present a speed comparison in C implemented on an Intel i7-4790 clocked at 3.60 GHz. McFarland provides all the necessary code to implement an *ad hoc* version of the algorithm, as well as a ready-to-use C code for a univariate Gaussian. A proof that the samples from this method are truly Gaussian is also provided.
