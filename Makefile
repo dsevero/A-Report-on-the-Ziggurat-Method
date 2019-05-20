@@ -10,6 +10,9 @@ clean:
 clear-cache:
 	rm -rf ~/.cache/pypoetry/virtualenvs/ziggurat-py3.* poetry.lock
 
+config:
+	git config core.hooksPath .githooks
+
 install:
 	poetry run pip install pip==19.1.1
 	poetry update -vv

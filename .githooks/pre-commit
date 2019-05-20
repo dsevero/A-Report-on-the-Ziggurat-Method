@@ -2,4 +2,5 @@
 
 for file in $(git diff --staged --name-only README.md); do
   make README.md
+  git add README.md
 done
