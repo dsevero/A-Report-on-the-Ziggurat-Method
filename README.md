@@ -10,7 +10,7 @@ A Report on the Ziggurat Method
    * [References](#references)
    * [How to reference this repo.](#how-to-reference-this-repo)
 
-<!-- Added by: severo, at: Fri May 17 00:25:31 -03 2019 -->
+<!-- Added by: severo, at: Sun May 19 23:17:54 -03 2019 -->
 
 <!--te-->
 

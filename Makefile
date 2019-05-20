@@ -1,4 +1,5 @@
-.PHONY: clean clear-cache install gh-md-toc README.md
+.DELETE_ON_ERROR:
+.PHONY: clean clear-cache install README.md report slides
 
 clean:
 	rm -rf \
@@ -13,7 +14,7 @@ install:
 	poetry update -vv
 	poetry install -vv
 
-gh-md-toc:
+bin/gh-md-toc:
 	mkdir -p bin
 	wget https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc
 	chmod a+x gh-md-toc
@@ -22,3 +23,7 @@ gh-md-toc:
 README.md:
 	./bin/gh-md-toc --insert README.md
 	rm -f README.md.orig.* README.md.toc.*
+
+report slides:
+	mkdir -p build/$@
+	lualatex --output-dir=build/$@ tex/$@.tex
