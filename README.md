@@ -4,14 +4,14 @@ A Report on the Ziggurat Method
 ============
 <!--ts-->
    * [A Report on the Ziggurat Method](#a-report-on-the-ziggurat-method)
+   * [How to reference this repo.](#how-to-reference-this-repo)
    * [Files](#files)
    * [Compile LaTeX](#compile-latex)
    * [Abstract](#abstract)
    * [Related Work](#related-work)
    * [References](#references)
-   * [How to reference this repo.](#how-to-reference-this-repo)
 
-<!-- Added by: severo, at: Mon May 20 00:37:18 -03 2019 -->
+<!-- Added by: severo, at: Mon May 20 00:40:57 -03 2019 -->
 
 <!--te-->
 
