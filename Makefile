@@ -4,7 +4,8 @@
 clean:
 	rm -rf \
 		build dist dask-worker-space ziggurat.egg-info \
-		.eggs .mypy_cache .pytest_cache venv .coverage*
+		.eggs .mypy_cache .pytest_cache venv .coverage* \
+		build/
 
 clear-cache:
 	rm -rf ~/.cache/pypoetry/virtualenvs/ziggurat-py3.* poetry.lock
@@ -26,4 +27,4 @@ README.md:
 
 report slides:
 	mkdir -p build/$@
-	lualatex --output-dir=build/$@ tex/$@.tex
+	latexmk -lualatex -jobname=build/$@/$@ tex/$@.tex
