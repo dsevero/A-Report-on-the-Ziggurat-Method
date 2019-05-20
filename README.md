@@ -15,6 +15,19 @@ A Report on the Ziggurat Method
 
 <!--te-->
 
+# How to reference this repo.
+```
+@misc{Severo2014,
+  author = {Severo, D.},
+  title = {A Report on the Ziggurat Method},
+  year = {2014},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/dsevero/A-Report-on-the-Ziggurat-Method}},
+  commit = {master}
+}
+```
+
 # Files
 - [Full report](pdf/A_Report_on_the_Ziggurat_Method.pdf)
 - [Slides](pdf/A_Report_on_the_Ziggurat_Method-slides.pdf)
@@ -38,16 +51,3 @@ Pseudo-random number generators (PRNG's) are crucial in the context of simulatin
 > [3] George  Marsaglia,  Wai  Wan  Tsang,  ”The  Ziggurat  Method  for  Generating  Random  Variables”,Journal of Statistical Software, 2000.
 
 > [4]  Christopher  D.  McFarland,  ”A  modified  ziggurat  algorithm  for  generating  exponentially-  andnormally-distributed pseudorandom numbers.”, Apr. 2014.
-
-# How to reference this repo.
-```
-@misc{Severo2014,
-  author = {Severo, D.},
-  title = {A Report on the Ziggurat Method},
-  year = {2014},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/dsevero/A-Report-on-the-Ziggurat-Method}},
-  commit = {master}
-}
-```
