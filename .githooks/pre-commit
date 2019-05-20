@@ -1,5 +1,5 @@
 #!/bin/sh
 
 for file in $(git diff --staged --name-only README.md); do
-  bin/gh-md-toc --insert $file
+  make README.md
 done
