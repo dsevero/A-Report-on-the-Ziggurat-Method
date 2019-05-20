@@ -11,6 +11,7 @@ clear-cache:
 	rm -rf ~/.cache/pypoetry/virtualenvs/ziggurat-py3.* poetry.lock
 
 config:
+	chmod +x .githooks/*
 	git config core.hooksPath .githooks
 
 install:
