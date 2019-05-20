@@ -18,6 +18,11 @@ A Report on the Ziggurat Method
 - [Full report](pdf/A_Report_on_the_Ziggurat_Method.pdf)
 - [Slides](pdf/A_Report_on_the_Ziggurat_Method-slides.pdf)
 
+# Compile LaTeX
+Run `make report` or `make slides` to compile the respective files from `tex/` to `build/`. You will need the following:
+
+`apt install texlive latexmk texlive-fonts-extra texlive-pictures`
+
 # Abstract
 Pseudo-random number generators (PRNG's) are crucial in the context of simulating noise in communication channels. We present a report on an efficient method for generating pseudo-random samples from any decreasing probability distribution called the Ziggurat Method. The initial idea was developed by [1], but has been enhanced by Marsaglia, Tsang [3] and others. Specifically, we will show the latest and most efficient version presented by McFarland [4]. In the latter paper, the method shows a speedup of over 3 times compared to traditional algorithms such as Marsaglia's Polar Method [2]. We present a speed comparison in C implemented on an Intel i7-4790 clocked at 3.60 GHz. McFarland [4] provides all the necessary code to implement an _ad hoc_ version of the algorithm, as well as a ready-to-use C code for a univariate Gaussian. A proof that the samples from this method are truly Gaussian is also provided.
 
