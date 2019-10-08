@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{biblatex}
 \usepackage{bbold}
 \usepackage[justification=centering]{caption}
 \usepackage{lipsum}
@@ -17,6 +18,7 @@
 \tikzset{points/.style={dash pattern = on 1pt off 1pt}}
 \tikzset{tirets/.style={dash pattern = on 5pt off 5pt}}
 \newtheorem{theorem}{\textit{Theorem}}
+\addbibresource{bibliography.bib}
 
 \begin{document}
 \title{A Report on the Ziggurat Method}
@@ -31,7 +33,7 @@ University of Toronto}
 \end{abstract}
 
 \section{Introduction}
-Pseudo-random number generators (PRNG's) are crucial in the context of simulating noise in communication channels. We present a report on an efficient method for generating pseudo-random samples from any decreasing probability distribution called the Ziggurat Method. The initial idea was developed by \cite{marsaglia}, but has been enhanced by Marsaglia, Tsang \cite{marsaglia&tsang} and others. Specifically, we will show the latest and most efficient version presented by McFarland \cite{mcfarland}. In the latter paper, the method shows a speedup of over 3 times compared to traditional algorithms such as Marsaglia's Polar Method \cite{marsagliapolar}. We present a speed comparison in C implemented on an Intel i7-4790 clocked at 3.60 GHz. McFarland \cite{mcfarland} provides all the necessary code to implement an \textit{ad hoc} version of the algorithm, as well as a ready-to-use C code for a univariate Gaussian. A proof that the samples from this method are truly Gaussian is also provided.
+Pseudo-random number generators (PRNG's) are crucial in the context of simulating noise in communication channels. We present a report on an efficient method for generating pseudo-random samples from any decreasing probability distribution called the Ziggurat Method. The initial idea was developed by \cite{marsaglia1964convenient}, but has been enhanced by Marsaglia, Tsang \cite{marsaglia2000ziggurat} and others. Specifically, we will show the latest and most efficient version presented by McFarland \cite{mcfarland2016modified}. In the latter paper, the method shows a speedup of over 3 times compared to traditional algorithms such as Marsaglia's Polar Method \cite{marsaglia1984fast}. We present a speed comparison in C implemented on an Intel i7-4790 clocked at 3.60 GHz. McFarland \cite{mcfarland2016modified} provides all the necessary code to implement an \textit{ad hoc} version of the algorithm, as well as a ready-to-use C code for a univariate Gaussian. A proof that the samples from this method are truly Gaussian is also provided.
 
 \section{Uniform region sampling}\label{ugs}
 Prior to explaining the method, a prelude into a simple, yet important, mathematical result in probability theory is due. Most pseudorandom number generators operate on the principle that sampling a point $x$ directly from the distribution in question, call it $g$, is equivalent to the following:
@@ -126,15 +128,15 @@ To implement this method we require 3 look-up tables. One for the ziggurat lengt
 Since each region is selected with probability proportional to it's area, the method will generate samples $x$ with distribution $g$, according to section \ref{ugs}.
 
 \section{Implementation and Speed}\label{implementation}
-McFarland \cite{mcfarland} has made available all the necessary codes to be used in C, Python and MATLAB. It can be found at \url{https://bitbucket.org/cdmcfarland/fast_prng}. We have also uploaded a Python script that generates all the necessary tables ($x_i$, $y_i=g(x_i)$ and $A_j$) for any given bin size $N$: \url{https://github.com/dsevero/A-Report-on-the-Ziggurat-Method/blob/master/ziggurat/generate_tables.py}.
+McFarland \cite{mcfarland2016modified} has made available all the necessary codes to be used in C, Python and MATLAB. It can be found at \url{https://bitbucket.org/cdmcfarland/fast_prng}. We have also uploaded a Python script that generates all the necessary tables ($x_i$, $y_i=g(x_i)$ and $A_j$) for any given bin size $N$: \url{https://github.com/dsevero/A-Report-on-the-Ziggurat-Method/blob/master/ziggurat/generate_tables.py}.
 
-The header file \textit{normal.h} that has been made available by \cite{mcfarland}, and 
+The header file \textit{normal.h} that has been made available by \cite{mcfarland2016modified}, and 
 is available at the hyperlink above, can be readily inserted into any C code. It provides 
 a function \textit{normal\_setup()} that must be called to initialize the pseudo-random
 number generator and \textit{normal()} can be used to sample numbers from a univariate
 Gaussian distribution ($\mu=0$ and $\sigma^2=1$). The area of the bins used to generate this specific code was $1/256$.
 
-With respect to speed, the Ziggurat algorithm implemented in C for $N=256$, is over 4 times faster than the tradition polar method \cite{marsaglia}, running on an Intel i7-4790 clocked at 3.60 GHz with 16 GB of RAM. Since \textit{normal()} generates a univariate Gaussian, we compared the speed of computing $\sigma*normal()+\mu$ (also in C) to the one of reapplying the Ziggurat algorithm to a $\mu$,$\sigma$ Gaussian. No significant performance improvements were seen. McFarland \cite{mcfarland} provides other speed comparisons in different programming languages.
+With respect to speed, the Ziggurat algorithm implemented in C for $N=256$, is over 4 times faster than the tradition polar method \cite{marsaglia1964convenient}, running on an Intel i7-4790 clocked at 3.60 GHz with 16 GB of RAM. Since \textit{normal()} generates a univariate Gaussian, we compared the speed of computing $\sigma*normal()+\mu$ (also in C) to the one of reapplying the Ziggurat algorithm to a $\mu$,$\sigma$ Gaussian. No significant performance improvements were seen. McFarland \cite{mcfarland2016modified} provides other speed comparisons in different programming languages.
 
 \section{Appendix}
 Here we present some useful results, with proofs, related to Rejection Sampling and hand-picked probability distributions. We assume that the reader is familiar with introductory level calculus and probability theory.
@@ -236,24 +238,8 @@ The formal verification of this algorithm is straightforward:
 $$f_Z(z)=\frac{1}{N}$$
 $$f_{X|Z}(x|z)=Ng_z(x)$$
 $$f_X(x)=\sum_z f_{X,Z}(x,z) = \sum_z f_Z(z)f_{X|Z}(x|z)=\sum_z \frac{1}{N}Ng_z(x)=g(x)$$
-This result is useful as long as it is easier to sample from $g_1,\dotsb,g_N$ than it is from $g$. The Ziggurat method takes advantage of this and the fact that very efficient uniform pseudorandom number generators are available in most programming languages to create a simple algorithm to quickly generate samples from any decreasing density \cite{marsaglia&tsang}.
-
-
+This result is useful as long as it is easier to sample from $g_1,\dotsb,g_N$ than it is from $g$. The Ziggurat method takes advantage of this and the fact that very efficient uniform pseudorandom number generators are available in most programming languages to create a simple algorithm to quickly generate samples from any decreasing density \cite{marsaglia2000ziggurat}.
 
 \newpage
-\begin{thebibliography}{9}
-
-\bibitem{marsaglia}
-	George Marsaglia, "A convenient method for generating normal variables.", SIAM Rev. 6, 260-264, 1964.
-
-\bibitem{marsagliapolar}
-	George Marsaglia, Wai Wan Tsang, "A fast, easily implemented method for sampling from decreasing or symmetric unimodal density functions", SIAM Journ. Scient. and Statis. Computing, 5, 349-359, 1984.
-	
-\bibitem{marsaglia&tsang}
-	George Marsaglia, Wai Wan Tsang, "The Ziggurat Method for Generating Random Variables", Journal of Statistical Software, 2000.
-
-\bibitem{mcfarland}
-	Christopher D. McFarland, "A modified ziggurat algorithm for generating exponentially- and normally-distributed pseudorandom numbers.", Apr. 2014.
-
-\end{thebibliography}
+\printbibliography
 \end{document}
