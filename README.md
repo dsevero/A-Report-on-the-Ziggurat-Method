@@ -17,15 +17,14 @@ A Report on the Ziggurat Method
 
 # How to reference this repo.
 ```
-@misc{Severo2014,
-  author = {Severo, D.},
-  title = {A Report on the Ziggurat Method},
-  year = {2014},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/dsevero/A-Report-on-the-Ziggurat-Method}},
-  commit = {master}
-}
+@article{daniel severo_2019, 
+  title={A Report on the Ziggurat Method},
+  DOI={10.5281/zenodo.3546269},
+  abstractNote={Mathematical proof of functionality, of a highly efficient pseudo-random number generator: The Ziggurat Method}, 
+  publisher={Zenodo},
+  author={Daniel Severo},
+  year={2019},
+  month={Nov}}
 ```
 
 # Files
